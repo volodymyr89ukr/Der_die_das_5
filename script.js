@@ -6,9 +6,8 @@ let learnedWords = 0;
 
 // Розбиваємо words на 10 наборів по 60 слів
 function prepareWordSets() {
-  const shuffledWords = [...words].sort(() => Math.random() - 0.5);
   for (let i = 0; i < 10; i++) {
-    wordSets.push(shuffledWords.slice(i * 60, (i + 1) * 60));
+    wordSets.push(words.slice(i * 60, (i + 1) * 60));
   }
 }
 

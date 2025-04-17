@@ -1,4 +1,4 @@
-let words;
+let words, beforeWords;
 let list = [
   { noun: "Alter", gender: "das", translation: "вік" },
   { noun: "Angebot", gender: "das", translation: "пропозиція" },
@@ -421,7 +421,7 @@ let list = [
   { noun: "Süden", gender: "der", translation: "південь" },
   { noun: "Westen", gender: "der", translation: "захід" },
   { noun: "Osten", gender: "der", translation: "схід" },
-  { noun: "Deutsche", gender: "der/die", translation: "німець / німкеня" },
+  { noun: "Deutsche", gender: "der", translation: "німець" },
   { noun: "Europäer", gender: "der", translation: "європеєць" },
   { noun: "Europäerin", gender: "die", translation: "європейка" },
   { noun: "Italiener", gender: "der", translation: "італієць" },
@@ -574,5 +574,66 @@ let list = [
   { noun: "Spielzeug", gender: "das", translation: "іграшка" },
   { noun: "Tor", gender: "das", translation: "ворота" },
   { noun: "Verbot", gender: "das", translation: "заборона" },
+  { noun: "Nichte", gender: "die", translation: "племінниця" },
+  { noun: "Neffe", gender: "der", translation: "племінник" },
+  { noun: "Wange", gender: "die", translation: "щока" },
+  { noun: "Stirn", gender: "die", translation: "лоб" },
+  { noun: "Zunge", gender: "die", translation: "язик" },
+  { noun: "Ellbogen", gender: "der", translation: "лікоть" },
+  { noun: "Finger", gender: "der", translation: "палець" },
+  { noun: "Honig", gender: "der", translation: "мед" },
+  { noun: "Suppe", gender: "die", translation: "суп" },
+  { noun: "Fluss", gender: "der", translation: "річка" },
+  { noun: "Berg", gender: "der", translation: "гора" },
+  { noun: "Lineal", gender: "das", translation: "лінійка" },
+  { noun: "Schere", gender: "die", translation: "ножиці" },
+  { noun: "Taschenrechner", gender: "der", translation: "калькулятор" },
+  { noun: "Katze", gender: "die", translation: "кішка" },
+  { noun: "Hamster", gender: "der", translation: "хом'як" },
+  { noun: "Schwein", gender: "das", translation: "свиня" },
+  { noun: "Bär", gender: "der", translation: "ведмідь" },
+  { noun: "Hase", gender: "der", translation: "заєць" },
+  { noun: "Biene", gender: "die", translation: "бджола" },
+  { noun: "Schmetterling", gender: "der", translation: "метелик" },
+  { noun: "Maus", gender: "die", translation: "миша" },
+  { noun: "Nudeln", gender: "die", translation: "макарони" },
+  { noun: "Mikrowelle", gender: "die", translation: "мікрохвильова піч" },
+  { noun: "Staubsauger", gender: "der", translation: "пилосос" },
+  { noun: "Bibliothek", gender: "die", translation: "бібліотека" },
+  { noun: "Schal", gender: "der", translation: "шарф" },
+  { noun: "Joghurt", gender: "der", translation: "йогурт" },
+  { noun: "Heft", gender: "das", translation: "зошит" },
+  { noun: "Gurke", gender: "die", translation: "огірок" },
+  { noun: "Tasse", gender: "die", translation: "чашка" },
+  { noun: "Blitz", gender: "der", translation: "блискавка" },
+  { noun: "Brunnen", gender: "der", translation: "фонтан" },
+  { noun: "Eimer", gender: "der", translation: "відро" },
+  { noun: "Rabatt", gender: "der", translation: "знижка" },
+  { noun: "Spritze", gender: "die", translation: "шприц" },
+  {
+    noun: "Krankenversicherung",
+    gender: "die",
+    translation: "медичне страхування",
+  },
+  { noun: "Tankstelle", gender: "die", translation: "заправка" },
 ];
-words = list.sort((a, b) => a.noun.localeCompare(b.noun));
+beforeWords = list.sort((a, b) => a.noun.localeCompare(b.noun));
+function reorderArray(arr) {
+  const reorderedArray = [];
+  const groupSize = 10; // Крок через 10 елементів
+
+  // Проходимо по першим 10 елементам (0-9)
+  for (let i = 0; i < groupSize; i++) {
+    // Додаємо кожен i-тий елемент та кожен i+10, i+20, і т.д.
+    for (let j = i; j < arr.length; j += groupSize) {
+      if (arr[j]) {
+        // Перевіряємо, чи існує елемент (на випадок, якщо arr.length не кратний 10)
+        reorderedArray.push(arr[j]);
+      }
+    }
+  }
+
+  return reorderedArray;
+}
+
+words = reorderArray(beforeWords);
