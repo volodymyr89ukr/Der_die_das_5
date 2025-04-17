@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artikel-Trainer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Artikel-Trainer</h1>
+      <div id="set-selection" class="set-selection">
+        <label for="word-set">Оберіть комплект слів:</label>
+        <select id="word-set">
+          <option value="" disabled selected>Виберіть комплект</option>
+          <option value="0">Комплект 1</option>
+          <option value="1">Комплект 2</option>
+          <option value="2">Комплект 3</option>
+          <option value="3">Комплект 4</option>
+          <option value="4">Комплект 5</option>
+          <option value="5">Комплект 6</option>
+          <option value="6">Комплект 7</option>
+          <option value="7">Комплект 8</option>
+          <option value="8">Комплект 9</option>
+          <option value="9">Комплект 10</option>
+        </select>
+        <button id="start-btn">Почати</button>
+      </div>
+
+      <div id="game-section" class="hidden">
+        <p>Вибери правильний артикль для слова:</p>
+        <div id="question-section">
+          <div id="question"></div>
+          <button id="play-audio" title="Прослухати слово">🔊</button>
+        </div>
+        <div class="buttons">
+          <button class="btn der">der</button>
+          <button class="btn die">die</button>
+          <button class="btn das">das</button>
+        </div>
+        <div id="feedback"></div>
+        <div id="progress-container">
+          <div id="progress-bar"></div>
+          <span id="progress-text">0/60 вивчено</span>
+        </div>
+      </div>
+    </div>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

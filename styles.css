@@ -1,0 +1,136 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+  margin: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+}
+
+#question-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+#question {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+#play-audio {
+  font-size: 1.5em;
+  padding: 5px 10px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 24px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  min-width: 80px;
+}
+
+.btn.der {
+  background-color: #cce5ff;
+}
+
+.btn.die {
+  background-color: #f8d7da;
+}
+
+.btn.das {
+  background-color: #d4edda;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+#feedback {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+
+#result {
+  margin-top: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+/* Існуючі стилі... */
+
+.set-selection {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.set-selection select {
+  padding: 8px;
+  border-radius: 6px;
+  margin: 0 10px;
+}
+
+#start-btn {
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#start-btn:hover {
+  background-color: #45a049;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#progress-container {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#progress-bar {
+  height: 20px;
+  background-color: #4caf50;
+  width: 0%;
+  transition: width 0.3s;
+}
+
+#progress-text {
+  display: block;
+  text-align: center;
+  margin-top: 5px;
+  font-size: 0.9em;
+}
