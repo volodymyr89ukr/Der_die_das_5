@@ -68,6 +68,9 @@ function startGame(selectedSetIndex) {
 }
 
 function showNextWord() {
+  const questionElement = document.getElementById("question");
+  questionElement.style.minHeight = "3.5em";
+  questionElement.classList.add("multiline");
   if (learnedWords >= 60) {
     document.getElementById("result").innerText =
       "🎉 Комплект вивчено! Вітаємо!";
@@ -98,38 +101,6 @@ function showNextWord() {
   document.getElementById("feedback").innerText = "";
 }
 
-// function checkAnswer(userInput) {
-//   if (!currentWord) return;
-
-//   let isCorrect = userInput === currentWord.gender;
-
-//   if (isCorrect) {
-//     const streakCount = (correctStreak.get(currentWord.noun) || 0) + 1;
-//     correctStreak.set(currentWord.noun, streakCount);
-
-//     if (streakCount === 2) {
-//       learnedWords++;
-//       updateProgress();
-//     }
-//   } else {
-//     correctStreak.set(currentWord.noun, 0);
-//   }
-
-//   const feedbackMessage = isCorrect
-//     ? `✅ Правильно! ${currentWord.gender} ${currentWord.noun} (${currentWord.translation})`
-//     : `❌ Неправильно. Правильно: ${currentWord.gender} ${currentWord.noun} (${currentWord.translation})`;
-
-//   document.getElementById("feedback").innerText = feedbackMessage;
-
-//   setTimeout(() => {
-//     playAudio(`${currentWord.gender} ${currentWord.noun}`);
-//   }, 0);
-
-//   setTimeout(showNextWord, 2200);
-// }
-
-// Previous code remains the same until checkAnswer function
-
 function checkAnswer(userInput) {
   if (!currentWord) return;
 
@@ -147,19 +118,30 @@ function checkAnswer(userInput) {
     correctStreak.set(currentWord.noun, 0);
   }
 
+  const feedback = document.getElementById("feedback");
   const feedbackMessage = isCorrect
     ? `✅ Правильно! ${currentWord.gender} ${currentWord.noun} (${currentWord.translation})`
     : `❌ Неправильно. Правильно: ${currentWord.gender} ${currentWord.noun} (${currentWord.translation})`;
 
-  document.getElementById("feedback").innerText = feedbackMessage;
+  // Показуємо повідомлення з анімацією
+  feedback.innerText = feedbackMessage;
+  feedback.classList.add("show");
 
+  // Відтворюємо аудіо
   setTimeout(() => {
     playAudio(`${currentWord.gender} ${currentWord.noun}`);
   }, 0);
 
+  // Затримка перед наступним словом
   setTimeout(() => {
-    document.getElementById("feedback").innerText = ""; // Clear feedback before next word
-    showNextWord();
+    // Ховаємо повідомлення з анімацією
+    feedback.classList.remove("show");
+
+    // Чекаємо завершення анімації перед оновленням
+    setTimeout(() => {
+      feedback.innerText = "";
+      showNextWord();
+    }, 300); // Час має збігатися з CSS transition
   }, 2200);
 }
 

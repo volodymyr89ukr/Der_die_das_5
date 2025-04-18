@@ -340,6 +340,42 @@ h1 {
   font-size: 1.2rem; /* Зменшено з 1.5rem */
 }
 
+.feedback-message {
+  text-align: center;
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 500;
+  min-height: 80px; /* Фіксована висота */
+  height: 80px; /* Додаємо явну висоту */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  visibility: hidden; /* Приховано за замовчуванням */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.feedback-message.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.feedback-placeholder {
+  height: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  visibility: hidden;
+}
+
+#question.multiline {
+  line-height: 1.3;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+}
+
 @media (max-width: 480px) {
   .container {
     padding: 15px;
@@ -350,8 +386,15 @@ h1 {
   }
 
   #question {
-    font-size: 1.5rem; /* Зменшено з 1.8rem */
-    min-height: 50px; /* Зменшено з 60px */
+    font-size: 1.25rem; /* Зменшено з 1.8rem */
+    line-height: 1.4; /* Міжрядковий інтервал */
+    min-height: 3.5em; /* Фіксована висота під 2 рядки */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    text-align: center;
+    word-break: break-word; /* Перенос довгих слів */
   }
 
   .buttons {
@@ -373,7 +416,26 @@ h1 {
   }
 
   .feedback-message {
-    min-height: 60px;
+    min-height: 70px;
+    height: 70px;
+    margin: 10px 0;
+    padding: 10px;
     font-size: 1rem;
+  }
+
+  .card {
+    min-height: 80px; /* Зменшено з 100px */
+    padding: 8px 10px;
+  }
+
+  #play-audio {
+    margin-left: 4px; /* Компактніший відступ */
+  }
+}
+
+@media (max-width: 400px) {
+  #question {
+    font-size: 1.15rem;
+    min-height: 3.2em;
   }
 }
