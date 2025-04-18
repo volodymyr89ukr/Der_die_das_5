@@ -167,7 +167,7 @@ h1 {
 .instruction {
   text-align: center;
   margin-bottom: 15px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--dark-color);
 }
 
@@ -386,9 +386,9 @@ h1 {
   }
 
   #question {
-    font-size: 1.25rem; /* Зменшено з 1.8rem */
-    line-height: 1.4; /* Міжрядковий інтервал */
-    min-height: 3.5em; /* Фіксована висота під 2 рядки */
+    font-size: 1.55rem; /* Зменшено з 1.8rem */
+    line-height: 1.6; /* Міжрядковий інтервал */
+    min-height: 4.3em; /* Фіксована висота під 2 рядки */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -410,7 +410,7 @@ h1 {
   .btn {
     flex: 1;
     padding: 8px 2px; /* Зменшено з 14px 28px */
-    font-size: 1rem; /* Зменшено з 1.2rem */
+    font-size: 1.2rem; /* Зменшено з 1.2rem */
     min-width: 60px;
     max-width: 30%;
   }
@@ -435,7 +435,7 @@ h1 {
 
 @media (max-width: 400px) {
   #question {
-    font-size: 1.15rem;
-    min-height: 3.2em;
+    font-size: 1.3rem;
+    min-height: 3.8em;
   }
 }
