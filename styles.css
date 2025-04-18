@@ -355,15 +355,21 @@ h1 {
   }
 
   .buttons {
-    flex-direction: column;
+    display: fles;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 12px;
     align-items: center;
   }
 
   .btn {
-    padding: 12px 20px; /* Зменшено з 14px 28px */
-    font-size: 1.1rem; /* Зменшено з 1.2rem */
-    width: 100%;
-    max-width: 200px;
+    flex: 1;
+    padding: 8px 2px; /* Зменшено з 14px 28px */
+    font-size: 1rem; /* Зменшено з 1.2rem */
+    min-width: 60px;
+    max-width: 30%;
   }
 
   .feedback-message {
