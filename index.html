@@ -5,63 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Artikel-Trainer</title>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
-      <h1>Artikel-Trainer</h1>
+      <header>
+        <h1>Artikel-Trainer</h1>
+        <p class="subtitle">Тренування німецьких артиклів</p>
+      </header>
+
       <div id="set-selection" class="set-selection">
-        <label for="word-set">Оберіть комплект слів:</label>
-        <select id="word-set">
-          <option value="" disabled selected>Виберіть комплект</option>
-          <option value="0">Комплект 1</option>
-          <option value="1">Комплект 2</option>
-          <option value="2">Комплект 3</option>
-          <option value="3">Комплект 4</option>
-          <option value="4">Комплект 5</option>
-          <option value="5">Комплект 6</option>
-          <option value="6">Комплект 7</option>
-          <option value="7">Комплект 8</option>
-          <option value="8">Комплект 9</option>
-          <option value="9">Комплект 10</option>
-        </select>
-        <!-- Add this after the word set selection but before the start button -->
+        <div class="form-group">
+          <label for="word-set">Оберіть комплект слів:</label>
+          <select id="word-set" class="form-control">
+            <option value="" disabled selected>Виберіть комплект</option>
+            <option value="0">Комплект 1</option>
+            <option value="1">Комплект 2</option>
+            <option value="2">Комплект 3</option>
+            <option value="3">Комплект 4</option>
+            <option value="4">Комплект 5</option>
+            <option value="5">Комплект 6</option>
+            <option value="6">Комплект 7</option>
+            <option value="7">Комплект 8</option>
+            <option value="8">Комплект 9</option>
+            <option value="9">Комплект 10</option>
+          </select>
+        </div>
+
         <div class="difficulty-selection">
           <label>Рівень складності перекладу:</label>
-          <div>
-            <input
-              type="radio"
-              id="easy"
-              name="difficulty"
-              value="easy"
-              checked
-            />
-            <label for="easy">Простий</label>
-
-            <input type="radio" id="medium" name="difficulty" value="medium" />
-            <label for="medium">Нормальний</label>
-
-            <input type="radio" id="hard" name="difficulty" value="hard" />
-            <label for="hard">Складний</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="difficulty" value="easy" checked />
+              <span>Простий</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="difficulty" value="medium" />
+              <span>Нормальний</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="difficulty" value="hard" />
+              <span>Складний</span>
+            </label>
           </div>
         </div>
-        <button id="start-btn">Почати</button>
+
+        <button id="start-btn" class="primary-btn">Почати тренування</button>
       </div>
 
       <div id="game-section" class="hidden">
-        <p>Вибери правильний артикль для слова:</p>
-        <div id="question-section">
-          <div id="question"></div>
-          <button id="play-audio" title="Прослухати слово">🔊</button>
+        <div class="game-header">
+          <p class="instruction">Вибери правильний артикль для слова:</p>
+          <div id="question-section" class="card">
+            <div id="question"></div>
+            <button id="play-audio" class="icon-btn" title="Прослухати слово">
+              <span class="icon">🔊</span>
+              <span class="tooltip">Прослухати</span>
+            </button>
+          </div>
         </div>
+
         <div class="buttons">
           <button class="btn der">der</button>
           <button class="btn die">die</button>
           <button class="btn das">das</button>
         </div>
-        <div id="feedback"></div>
-        <div id="progress-container">
-          <div id="progress-bar"></div>
-          <span id="progress-text">0/60 вивчено</span>
+
+        <div id="feedback" class="feedback-message"></div>
+
+        <div class="progress-container">
+          <div class="progress-info">
+            <span id="progress-text">0/60 вивчено</span>
+            <span class="progress-percent">0%</span>
+          </div>
+          <div id="progress-bar" class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
         </div>
       </div>
     </div>
