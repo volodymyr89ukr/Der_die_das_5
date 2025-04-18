@@ -4,6 +4,52 @@ let currentWord = null;
 let correctStreak = new Map();
 let learnedWords = 0;
 
+// Функції для обробки рівнів складності перекладу
+function getSelectedDifficulty() {
+  return document.querySelector('input[name="difficulty"]:checked').value;
+}
+
+function applyDifficulty(translation, difficulty) {
+  if (difficulty === "easy") {
+    return translation;
+  } else if (difficulty === "medium") {
+    return translation
+      .split(" ")
+      .map((word) => {
+        const letters = word.split("");
+        const length = letters.length;
+        const hideCount = Math.floor(length / 2);
+
+        // Створюємо масив індексів для приховування
+        const hideIndices = [];
+        while (hideIndices.length < hideCount) {
+          const randomIndex = Math.floor(Math.random() * length);
+          if (!hideIndices.includes(randomIndex)) {
+            hideIndices.push(randomIndex);
+          }
+        }
+
+        // Замінюємо вибрані літери на *
+        return letters
+          .map((char, index) => (hideIndices.includes(index) ? "*" : char))
+          .join("");
+      })
+      .join(" ");
+  } else if (difficulty === "hard") {
+    return translation
+      .split(" ")
+      .map((word) => {
+        if (word.length < 2) return "*";
+        return word
+          .split("")
+          .map((char, index) => (index === 1 ? char : "*"))
+          .join("");
+      })
+      .join(" ");
+  }
+  return translation;
+}
+
 // Розбиваємо words на 10 наборів по 60 слів
 function prepareWordSets() {
   for (let i = 0; i < 10; i++) {
@@ -39,9 +85,16 @@ function showNextWord() {
 
   currentWord =
     remainingWords[Math.floor(Math.random() * remainingWords.length)];
+
+  const difficulty = getSelectedDifficulty();
+  const displayedTranslation = applyDifficulty(
+    currentWord.translation,
+    difficulty
+  );
+
   document.getElementById(
     "question"
-  ).innerText = `${currentWord.noun} (${currentWord.translation})`;
+  ).innerText = `${currentWord.noun} (${displayedTranslation})`;
   document.getElementById("feedback").innerText = "";
 }
 
@@ -70,9 +123,9 @@ function checkAnswer(userInput) {
 
   setTimeout(() => {
     playAudio(`${currentWord.gender} ${currentWord.noun}`);
-  }, 100);
+  }, 0);
 
-  setTimeout(showNextWord, 2100);
+  setTimeout(showNextWord, 2200);
 }
 
 function updateProgress() {

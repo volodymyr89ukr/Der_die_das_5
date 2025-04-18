@@ -24,6 +24,26 @@
           <option value="8">Комплект 9</option>
           <option value="9">Комплект 10</option>
         </select>
+        <!-- Add this after the word set selection but before the start button -->
+        <div class="difficulty-selection">
+          <label>Рівень складності перекладу:</label>
+          <div>
+            <input
+              type="radio"
+              id="easy"
+              name="difficulty"
+              value="easy"
+              checked
+            />
+            <label for="easy">Простий</label>
+
+            <input type="radio" id="medium" name="difficulty" value="medium" />
+            <label for="medium">Нормальний</label>
+
+            <input type="radio" id="hard" name="difficulty" value="hard" />
+            <label for="hard">Складний</label>
+          </div>
+        </div>
         <button id="start-btn">Почати</button>
       </div>
 
