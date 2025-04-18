@@ -98,6 +98,38 @@ function showNextWord() {
   document.getElementById("feedback").innerText = "";
 }
 
+// function checkAnswer(userInput) {
+//   if (!currentWord) return;
+
+//   let isCorrect = userInput === currentWord.gender;
+
+//   if (isCorrect) {
+//     const streakCount = (correctStreak.get(currentWord.noun) || 0) + 1;
+//     correctStreak.set(currentWord.noun, streakCount);
+
+//     if (streakCount === 2) {
+//       learnedWords++;
+//       updateProgress();
+//     }
+//   } else {
+//     correctStreak.set(currentWord.noun, 0);
+//   }
+
+//   const feedbackMessage = isCorrect
+//     ? `✅ Правильно! ${currentWord.gender} ${currentWord.noun} (${currentWord.translation})`
+//     : `❌ Неправильно. Правильно: ${currentWord.gender} ${currentWord.noun} (${currentWord.translation})`;
+
+//   document.getElementById("feedback").innerText = feedbackMessage;
+
+//   setTimeout(() => {
+//     playAudio(`${currentWord.gender} ${currentWord.noun}`);
+//   }, 0);
+
+//   setTimeout(showNextWord, 2200);
+// }
+
+// Previous code remains the same until checkAnswer function
+
 function checkAnswer(userInput) {
   if (!currentWord) return;
 
@@ -125,8 +157,13 @@ function checkAnswer(userInput) {
     playAudio(`${currentWord.gender} ${currentWord.noun}`);
   }, 0);
 
-  setTimeout(showNextWord, 2200);
+  setTimeout(() => {
+    document.getElementById("feedback").innerText = ""; // Clear feedback before next word
+    showNextWord();
+  }, 2200);
 }
+
+// Rest of your existing code remains the same
 
 function updateProgress() {
   const progressBar = document.getElementById("progress-bar");
