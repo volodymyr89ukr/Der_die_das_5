@@ -102,9 +102,22 @@ function showNextWord() {
 }
 
 function checkAnswer(userInput) {
+  const buttons = document.querySelectorAll(".btn");
+  buttons.forEach((btn) => {
+    btn.classList.remove("active");
+    btn.style.transform = "";
+    btn.style.opacity = "";
+  });
   if (!currentWord) return;
 
   let isCorrect = userInput === currentWord.gender;
+
+  const clickedBtn = Array.from(buttons).find(
+    (btn) => btn.textContent.trim() === userInput
+  );
+  if (clickedBtn) {
+    clickedBtn.classList.add("active");
+  }
 
   if (isCorrect) {
     const streakCount = (correctStreak.get(currentWord.noun) || 0) + 1;
