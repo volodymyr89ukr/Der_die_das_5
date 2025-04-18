@@ -156,7 +156,7 @@ h1 {
 }
 
 .icon-btn .tooltip {
-  position: absolute;
+  /* position: absolute;
   bottom: -25px;
   font-size: 0.7rem;
   background: var(--dark-color);
@@ -165,7 +165,8 @@ h1 {
   border-radius: 4px;
   opacity: 0;
   transition: var(--transition);
-  white-space: nowrap;
+  white-space: nowrap; */
+  display: none;
 }
 
 .icon-btn:hover .tooltip {
